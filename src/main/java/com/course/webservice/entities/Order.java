@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class Order implements Serializable {
 
 	private Integer orderStatus;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "client_id")
 	private User client;
 
